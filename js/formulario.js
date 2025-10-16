@@ -81,10 +81,19 @@ function criaTd(dado, classes){
 function validarPaciente(paciente){
 
     var erros = [];
+
+    if(paciente.nome.length == 0) erros.push("o nome não pode estar vazio.");
     
     if(!validarPeso(paciente.peso)) erros.push(' Peso Inválido! ');
+
     if(!validarAltura(paciente.altura)) erros.push(' Altura Inválida! ');
-    return erros;
+
+    if (!validarAltura(paciente.gordura)) erros.push(' gordura Inválida! ');
+   
+ if (paciente.gordura.length == 0) erros.push("a gordura não pode estar vazia.");
+ 
+   return erros;
+    
 }
 
 function exibirMensagemErro(erros){
